@@ -1,9 +1,10 @@
 import * as cdk from 'aws-cdk-lib';
-import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as iam from 'aws-cdk-lib/aws-iam';
 import { Duration } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { configuration } from '../config/config';
+import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
+import { Runtime } from 'aws-cdk-lib/aws-lambda';
 
 const {
   env,
@@ -23,11 +24,11 @@ export class ContactCenterStack extends cdk.Stack {
     );
 
     /**--------------- LAMBDAS ----------------*/
-    const generateAedtDateTime = new lambda.Function(this, "GenerateAedtDateTime", {
-      runtime: lambda.Runtime.NODEJS_22_X,
-      handler: "generateAedtDateTime.handler",
+    const generateAedtDateTime = new NodejsFunction(this, "GenerateAedtDateTime", {
+      entry: 'src/lambdas/generateAedtDateTime/handler.ts', 
+      runtime: Runtime.NODEJS_22_X, 
+      handler: "handler", 
       functionName: `${env}-generateAedtDateTime`,
-      code: lambda.Code.fromAsset("src/lambdas"),
       timeout: Duration.seconds(8),
       role: lambdaRole
     });
