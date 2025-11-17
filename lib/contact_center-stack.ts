@@ -3,6 +3,11 @@ import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as iam from 'aws-cdk-lib/aws-iam';
 import { Duration } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
+import { configuration } from '../config/config';
+
+const {
+  env,
+} = configuration
 
 export class ContactCenterStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
@@ -21,6 +26,7 @@ export class ContactCenterStack extends cdk.Stack {
     const generateAedtDateTime = new lambda.Function(this, "GenerateAedtDateTime", {
       runtime: lambda.Runtime.NODEJS_22_X,
       handler: "generateAedtDateTime.handler",
+      functionName: `${env}-generateAedtDateTime`,
       code: lambda.Code.fromAsset("src/lambdas"),
       timeout: Duration.seconds(8),
       role: lambdaRole
