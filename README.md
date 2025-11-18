@@ -1,15 +1,15 @@
 # ContactCenter
-Repository for testing Amazon Connect AWS resource
 
-## Useful commands
+This project is an AWS CDK-based Contact Center solution sample. It leverages AWS Lambda (Node.js), Amazon Connect, and TypeScript for scalable, serverless contact center logic and infrastructure.
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `npx cdk deploy`  deploy this stack to your default AWS account/region
-* `npx cdk diff`    compare deployed stack with current state
-* `npx cdk synth`   emits the synthesized CloudFormation template
+## Documentation
+- [Architecture](./docs/architecture.md)
+- [Development Guide](./docs/development.md)
+- [Decision Register](./docs/decision-register.md)
 
+## Useful Commands
 
-# Get Started
-1. Install dependencies
+* `npm run test`    – Run Jest unit tests
+* `npx cdk deploy`  – Deploy this stack to your default AWS account/region
+* `npx cdk diff`    – Compare deployed stack with current state
+* `npx cdk synth`   – Emit the synthesized CloudFormation template

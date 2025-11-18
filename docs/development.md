@@ -5,6 +5,7 @@
 - npm
 - AWS CLI (configured)
 - Typescript
+- Docker
 
 ## Setup
 1. Clone the repository:
