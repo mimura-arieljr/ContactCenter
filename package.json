@@ -5,8 +5,6 @@
     "contact_center": "bin/contact_center.js"
   },
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc -w",
     "test": "jest --verbose",
     "cdk": "cdk"
   },
